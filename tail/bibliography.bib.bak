@@ -1,0 +1,258 @@
+% Encoding: UTF-8
+%% This BibTeX bibliography file was created using BibDesk.
+%% http://bibdesk.sourceforge.net/
+
+
+%% Created for Matthias Geissbühler at 2011-03-21 13:46:46 +0100 
+
+
+%% Saved with string encoding Unicode (UTF-8) 
+
+@misc{asirt, 
+	title={Road Crash Statistics}, 
+	url={http://asirt.org/initiatives/informing-road-users/road-safety-facts/road-crash-statistics}, 
+	urldate = {2017-05-15},
+	journal={ASIRT}
+}
+
+@misc{canada, 
+	title={Canada Population (LIVE)}, 
+	url={http://www.worldometers.info/world-population/canada-population/}, 
+	journal={Canada Population (2017) - Worldometers},
+urldate={2017-05-27}}
+
+@misc{who,
+	title = {Global status report on road safety 2013: supporting a	decade of action},
+	url = {http://www.who.int/violence_injury_prevention/road_traffic/en/},
+	urldate = {2017-05-15},
+	journal={World Health Organization}
+}
+
+@MASTERSTHESIS {davidleonardorenjifoherrera2016,
+	author = "David Leonardo Renjifo Herrera",
+	title  = "SIMULATION OF BASIC MULTI-HOP BROADCAST TECHNIQUES IN VEHICULAR Ad-Hoc NETWORKS USING VEINS SIMULATOR",
+	school = "Universitat Politècnica de Catalunya",
+	year   = "2016"
+}
+
+@Article{Sanguesa_2016,
+  author    = {Julio A. Sanguesa and Manuel Fogue and Piedad Garrido and Francisco J. Martinez and Juan-Carlos Cano and Carlos T. Calafate},
+  title     = {A Survey and Comparative Study of Broadcast Warning Message Dissemination Schemes for {VANETs}},
+  journal   = {Mobile Information Systems},
+  year      = {2016},
+  volume    = {2016},
+  pages     = {1--18},
+  doi       = {10.1155/2016/8714142},
+  publisher = {Hindawi Publishing Corporation},
+}
+
+@Article{Tonguz_2010,
+  author    = {Ozan Tonguz and Nawaporn Wisitpongphan and Fan Bai},
+  title     = {{DV}-{CAST}: A distributed vehicular broadcast protocol for vehicular ad hoc networks},
+  journal   = {{IEEE} Wireless Communications},
+  year      = {2010},
+  volume    = {17},
+  number    = {2},
+  pages     = {47--57},
+  month     = {apr},
+  doi       = {10.1109/mwc.2010.5450660},
+  publisher = {Institute of Electrical and Electronics Engineers ({IEEE})},
+}
+
+@InProceedings{Sanguesa_2013,
+  author    = {Julio Sanguesa and Manuel Fogue and Piedad Garrido and Francisco J. Martinez and Juan-Carlos Cano and Carlos T. Calafate and Pietro Manzoni},
+  title     = {On the selection of optimal broadcast schemes in {VANETs}},
+  booktitle = {Proceedings of the 16th {ACM} international conference on Modeling, analysis {\&} simulation of wireless and mobile systems - {MSWiM} {\textquotesingle}13},
+  year      = {2013},
+  publisher = {{ACM} Press},
+  doi       = {10.1145/2507924.2507935},
+}
+
+@Article{Wisitpongphan_2007,
+  author    = {Nawaporn Wisitpongphan and Ozan K. Tonguz and Jay Parikh and Priyantha Mudalige and Fan Bai and Varsha Sadekar},
+  title     = {Broadcast storm mitigation techniques in vehicular ad hoc networks},
+  journal   = {{IEEE} Wireless Communications},
+  year      = {2007},
+  volume    = {14},
+  number    = {6},
+  pages     = {84--94},
+  month     = {dec},
+  doi       = {10.1109/mwc.2007.4407231},
+  publisher = {Institute of Electrical and Electronics Engineers ({IEEE})},
+}
+
+@Article{chitra2013efficient,
+  author  = {Chitra, M and Sathya, S Siva},
+  title   = {Efficient broadcasting mechanisms for data dissemination in vehicular ad hoc networks},
+  journal = {International Journal of Mobile Network Communications \& Telematics (IJMNCT)},
+  year    = {2013},
+  volume  = {3},
+  number  = {3},
+  pages   = {47--63},
+}
+
+@PhdThesis{Tian2017,
+  author = {Bin Tian},
+  title  = {Data dissemination protocols and mobility model for {VANETs}},
+  school = {Blaise Pascal - Clermont-Ferrand II},
+  year   = {2017},
+  type   = {phdthesis},
+  url    = {https://tel.archives-ouvertes.fr/tel-01469693},
+  urldate = {2017-03-13}
+}
+
+@MastersThesis{classsimulator,
+  author = {David Leonardo Renjifo Herrera},
+  title  = {SIMULATION OF BASIC MULTI-HOP BROADCAST TECHNIQUES IN VEHICULAR Ad-Hoc NETWORKS USING VEINS SIMULATOR},
+  school = {Escola Tècnica d'Enginyeria de Telecomunicació de Barcelona Universitat Politècnica de Catalunya},
+  year   = {2016},
+}
+
+@TechReport{v2vfactsheet,
+  author      = {U.S National Highway Traffic Safety Administration},
+  title       = {{NHTSA ISSUES ADVANCE NOTICE OF PROPOSED RULEMAKING AND RESEARCH REPORT ON GROUND-BREAKING CRASH AVOIDANCE TECHNOLOGY: “VEHICLE-TO-VEHICLE COMMUNICATIONS: READINESS OF V2V TECHNOLOGY FOR APPLICATION”}},
+  institution = {United States Department of Transportation},
+  year        = {2014},
+}
+
+@Article{simsurvey,
+  author    = {Francisco J. Martinez and Chai Keong Toh and Juan-Carlos Cano and Carlos T. Calafate and Pietro Manzoni},
+  title     = {A survey and comparative study of simulators for vehicular ad hoc networks {(VANETs)}},
+  journal   = {Wireless Communications and Mobile Computing},
+  year      = {2009},
+  volume    = {11},
+  number    = {7},
+  pages     = {813--828},
+  month     = {oct},
+  doi       = {10.1002/wcm.859},
+  publisher = {Wiley-Blackwell},
+}
+
+@Book{tech,
+  title     = {Vehicular Networking},
+  publisher = {Cambridge University Press},
+  year      = {2015},
+  author    = {Christoph Sommer and Falko Dressler},
+  doi       = {10.1017/cbo9781107110649},
+}
+
+@Misc{v2i,
+  title     = {Vehicle-to-Infrastructure (V2I) Resources},
+  url       = {https://www.its.dot.gov/v2i/index.htm},
+  urldate = {2017-05-15},
+}
+
+@Misc{nhtsa,
+  title     = {Vehicle to Vehicle Communications},
+  url       = {https://www.nhtsa.gov/technology-innovation/vehicle-vehicle-communications},
+  urldate = {2017-05-15},
+}
+
+@Misc{overviewomnet,
+  title={{OMNeT} - Simulation Manual}, 
+  url={https://omnetpp.org/doc/omnetpp/manual/}, 
+  journal={OMNeT - Simulation Manual}, 
+  author={Varga, Andras},
+  urldate={2017-01-15}
+}
+
+@Misc{blindspot,
+  title     = {Knowledge Centre: Blind Spot Detection},
+  url       = {http://www.autoserviceworld.com/features/watching-cant-see/},
+  urldate = {2017-05-15},
+}
+
+@Misc{interveh,
+  title     = {GI/ITG KuVS Fachgespräch Inter-Vehicle Communication},
+  url       = {http://fg-ivc.car2x.org/},
+  urldate = {2017-05-15},
+}
+
+@Misc{ima,
+  title     = {Example of V2V Intersection Movement Assist Warning scenario},
+  url       = {https://icsw.nhtsa.gov/safercar/v2v/},
+  urldate = {2017-05-15},
+}
+
+@Article{wave,
+  author  = {Ahmed, Shereen AM and Ariffin, Sharifah HS and Fisal, Norsheila},
+  title   = {Overview of wireless access in vehicular environment ({WAVE}) protocols and standards},
+  journal = {Indian Journal of Science and Technology},
+  year    = {2013},
+  volume  = {6},
+  number  = {7},
+  pages   = {4994--5001},
+}
+
+@InProceedings{Wegener2017,
+  author       = {Wegener, Axel and Pi{\'o}rkowski, Micha{\l} and Raya, Maxim and Hellbr{\"u}ck, Horst and Fischer, Stefan and Hubaux, Jean-Pierre},
+  title        = {{TraCI}: an interface for coupling road traffic and network simulators},
+  booktitle    = {Proceedings of the 11th communications and networking simulation symposium},
+  year         = {2008},
+  pages        = {155--163},
+  organization = {ACM},
+}
+
+@inproceedings{behrisch2011sumo,
+	title={{SUMO}--simulation of urban mobility: an overview},
+	author={Behrisch, Michael and Bieker, Laura and Erdmann, Jakob and Krajzewicz, Daniel},
+	booktitle={Proceedings of SIMUL 2011, The Third International Conference on Advances in System Simulation},
+	year={2011},
+	organization={ThinkMind}
+}
+
+@article{sommer2011bidirectionally,
+	author = {Sommer, Christoph and German, Reinhard and Dressler, Falko},
+	title = {{Bidirectionally Coupled Network and Road Traffic Simulation for Improved IVC Analysis}},
+	journal = {IEEE Transactions on Mobile Computing},
+	pages = {3-15},
+	volume = {10},
+	number = {1},
+	year = {2011},
+	month = {January},
+	publisher = {IEEE},
+	doi = {10.1109/TMC.2010.133},
+}
+
+@inproceedings{pongor1993omnet,
+	title={Omnet: Objective modular network testbed},
+	author={Pongor, Gy{\"o}rgy},
+	booktitle={Proceedings of the International Workshop on Modeling, Analysis, and Simulation On Computer and Telecommunication Systems},
+	pages={323--326},
+	year={1993},
+	organization={Society for Computer Simulation International}
+}
+
+@Misc{openstreetmap, 
+	title={{OpenStreetMap}}, 
+	url={http://www.openstreetmap.org/}, 
+	journal={OpenStreetMap},
+	urldate = {2017-03-26}
+}
+
+@Article{Dimitrakopoulos_2010,
+  author    = {George Dimitrakopoulos and Panagiotis Demestichas},
+  title     = {Intelligent Transportation Systems},
+  journal   = {{IEEE} Vehicular Technology Magazine},
+  year      = {2010},
+  volume    = {5},
+  number    = {1},
+  pages     = {77--84},
+  month     = {mar},
+  doi       = {10.1109/mvt.2009.935537},
+  publisher = {Institute of Electrical and Electronics Engineers ({IEEE})},
+}
+
+@Article{Martinez_2010,
+  author    = {F J Martinez and Chai-Keong Toh and Juan-Carlos Cano and C T Calafate and P Manzoni},
+  title     = {Emergency Services in Future Intelligent Transportation Systems Based on Vehicular Communication Networks},
+  journal   = {{IEEE} Intelligent Transportation Systems Magazine},
+  year      = {2010},
+  volume    = {2},
+  number    = {2},
+  pages     = {6--20},
+  doi       = {10.1109/mits.2010.938166},
+  publisher = {Institute of Electrical and Electronics Engineers ({IEEE})},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}
