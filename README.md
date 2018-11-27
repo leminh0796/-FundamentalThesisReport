@@ -1,14 +1,20 @@
 # Báo cáo đề cương luận văn
 
 Hi mấy bạn đây là repo báo cáo đề cương luận văn của nhóm mình. 
+
 Báo cáo được viết bằng Latex, dựa trên template của thầy gửi nhóm.
+
 Mấy bạn clone về máy làm rồi commit vô master luôn nhé không cần branch đâu.
+
 Chưa biết về git thì có thể dùng GitHub Desktop ở [đây](https://desktop.github.com/)
+
 Sổ tay git ở [đây](http://rogerdudler.github.io/git-guide/index.vi.html)
+
 Mỗi lần làm xong thì nhớ commit rồi push lên lại nhé. Trước khi làm thì nhớ pull về để cập nhật nội dung mới nhất.
 
 > **Lưu ý:** File nào không cần xoá thì đừng xoá.
 
+> **Deadline:** Thứ 6 tuần này.
 
 # Danh sách các mục cần viết
 
