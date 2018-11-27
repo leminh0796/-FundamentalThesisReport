@@ -2,7 +2,7 @@
 
 Hi mấy bạn đây là repo báo cáo đề cương luận văn của nhóm mình. 
 
-Báo cáo được viết bằng Latex, dựa trên template của thầy gửi nhóm.
+Báo cáo được viết bằng Latex, dựa trên template của thầy gửi nhóm. Mình dùng TexMaker để edit và compile.
 
 Mấy bạn clone về máy làm rồi commit vô master luôn nhé không cần branch đâu.
 
