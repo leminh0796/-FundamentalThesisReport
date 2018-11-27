@@ -24,13 +24,14 @@ Mỗi lần làm xong thì nhớ commit rồi push lên lại nhé. Trước khi
  - [ ] Tài liệu tham khảo
  
 **Các chương chính**
-|Số chương|Tên chương|Mô tả|Tiến độ báo cáo|
-|--|--|--|--|
-|Chương 1|Giới thiệu đề tài|Giới thiệu đề tài, nêu mục tiêu, tóm lược nội dung luận văn|0%|
-|Chương 2|Cơ sở lý thuyết|Chi tiết về mô hình Quadcopter, khí động học, thuật toán điều khiển, thuật toán bầy đàn|0%|
-|Chương 3|Thiết kế mô hình|Phần cứng, phần mềm mô phỏng, mô hình thiết kế|0%|
-|Chương 4|Hiện thực mô hình|Luận văn rồi làm tiếp|0%|
-|Chương ...|||0%|
+
+|Số chương |Tên chương       |Mô tả                                                                                  |Tiến độ báo cáo|
+|----------|-----------------|---------------------------------------------------------------------------------------|---------------|
+|Chương 1  |Giới thiệu đề tài|Giới thiệu đề tài, nêu mục tiêu, tóm lược nội dung luận văn                            |0%             |
+|Chương 2  |Cơ sở lý thuyết  |Chi tiết về mô hình Quadcopter, khí động học, thuật toán điều khiển, thuật toán bầy đàn|0%             |
+|Chương 3  |Thiết kế mô hình |Phần cứng, phần mềm mô phỏng, mô hình thiết kế                                         |0%             |
+|Chương 4  |Hiện thực mô hình|Luận văn rồi làm tiếp                                                                  |0%             |
+
 
 # Phân bố công việc
 
