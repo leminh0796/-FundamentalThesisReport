@@ -44,4 +44,7 @@ Mỗi lần làm xong thì nhớ commit rồi push lên lại nhé. Trước khi
  - **Thương**: chương 1 và phần phụ (không bao gồm mục lục, danh sách hình và tài liệu tham khảo).
  - **Cường**: chương 2.
  - **Minh**: chương 3.
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8e796ed158c6b690d3b2ab736507068ab6acd4b3
