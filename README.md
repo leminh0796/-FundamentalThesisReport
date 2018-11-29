@@ -21,8 +21,8 @@ Mỗi lần làm xong thì nhớ commit rồi push lên lại nhé. Trước khi
 **Phần phụ**
 
  - [x] Trang bìa
- - [ ] Lời cam đoan
- - [ ] Lời cảm ơn
+ - [x] Lời cam đoan
+ - [x] Lời cảm ơn
  - [ ] Tóm tắt
  - [ ] Mục lục
  - [ ] Danh sách hình
