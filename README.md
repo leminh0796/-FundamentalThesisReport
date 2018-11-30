@@ -4,7 +4,7 @@ Hi mấy bạn đây là repo báo cáo đề cương luận văn của nhóm m�
 
 Báo cáo được viết bằng Latex, dựa trên template của thầy gửi nhóm. Mình dùng TexMaker để edit và compile.
 
-Mấy bạn clone về máy làm rồi commit vô master luôn nhé không cần branch đâu.
+Mấy bạn clone về máy làm rồi branch vào nhánh khác xong merge lại với master nha.
 
 Chưa biết về git thì có thể dùng GitHub Desktop ở [đây](https://desktop.github.com/)
 
@@ -21,8 +21,8 @@ Mỗi lần làm xong thì nhớ commit rồi push lên lại nhé. Trước khi
 **Phần phụ**
 
  - [x] Trang bìa
- - [ ] Lời cam đoan
- - [ ] Lời cảm ơn
+ - [x] Lời cam đoan
+ - [x] Lời cảm ơn
  - [ ] Tóm tắt
  - [ ] Mục lục
  - [ ] Danh sách hình
@@ -35,7 +35,7 @@ Mỗi lần làm xong thì nhớ commit rồi push lên lại nhé. Trước khi
 |----------|-----------------|---------------------------------------------------------------------------------------|---------------|
 |Chương 1  |Giới thiệu đề tài|Giới thiệu đề tài, nêu mục tiêu, tóm lược nội dung luận văn                            |0%             |
 |Chương 2  |Cơ sở lý thuyết  |Chi tiết về mô hình Quadcopter, khí động học, thuật toán điều khiển, thuật toán bầy đàn|0%             |
-|Chương 3  |Thiết kế mô hình |Phần cứng, phần mềm mô phỏng, mô hình thiết kế                                         |0%             |
+|Chương 3  |Thiết kế mô hình |Phần cứng, phần mềm mô phỏng, mô hình thiết kế                                         |80%            |
 |Chương 4  |Hiện thực mô hình|Luận văn rồi làm tiếp                                                                  |0%             |
 
 
