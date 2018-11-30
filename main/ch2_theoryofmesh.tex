@@ -1,150 +1,156 @@
 \chapter{Cơ sở lý thuyết} \label{chap:theory}
-    \section{Bluetooth Mesh}
-    	\subsection{Bluetooth trước Bluetooth Mesh}
-Trước khi Bluetooth Mesh ra đời, Bluetooth đã phát triển đến phiên bản 5.0, trong đó có thể chia làm hai giai đoạn (hay hai sứ mạng) bao gồm Bluetooth Basic Rate/Enhanced Data Rate (BR/EDR) và Bluetooth Low Energy (LE). BR/EDR mang lại thế hệ thiết bị không dây mới như tai nghe, chuột, bàn phím không dây,... trong khi đó BLE mang lại các thiết bị chạy pin như đồng hồ thông mình, các thiết bị thể thao, định vị,... Cả hai có thể tồn tại trong cùng một thiết bị nhưng không giao tiếp với nhau.\\
+    \section{Cấu tạo Quadcopter}
+    	\subsection{Bộ khung}
+Các phần chính của bộ khung Quadcopter được tóm tắt trong bảng sau:
+\begin{tabular}{|c|c|c|}
+\hline 
+Số lượng & Tên & Kích thước \\ 
+\hline 
+1 & Bộ điều khiển trung tâm & 155mm \\ 
+\hline 
+4 & Khung & 330mm \\ 
+\hline 
+2 & Càng hạ/cất cánh & 220mm \\ 
+\hline 
+\end{tabular}
+\begin{itemize}
 
-Trong khi BR/EDR chỉ hỗ trợ kết nối 1:1, dễ dàng nhận thấy điều này qua việc một bàn phím không dây không thể dùng cho hai máy tính cùng lúc, hoặc một điện thoại không thể "bắn bluetooth" cho nhiều điện thoại cùng lúc; thì BLE hỗ trợ thêm kết nối 1:nhiều bằng cách thức broadcast, chúng ta có thể tìm thấy kết nối này trong các ứng dụng Bluetooth beacons.
+\item Bộ điều khiển trung tậm được tạo từ hai tấm vật liệu carbon gắn chặt với nhau và khung Quadcopter. Bộ điều khiển sử dụng chương trình Adrupilot để kiểm soát bay. Ngoài ra bên trong bộ điều khiển còn chứa dây nguồn,… Pin Li-polymer được đặt ở dưới cùng bộ điều khiển để tạo sự ổn định khi bay. 
+
+\item Khung Quadcopter được tạo thành từ các thanh Carbon rỗng. Các thanh này được gắn chặt với bộ điều khiển thông qua các miếng cao su để giảm chấn khi động cơ hoạt động. Bốn thanh Carbon được đặt cách đều nhau. Các động cơ cũng được đặt trên một tấm vật liệu Carbon và gắn chặt với khung bằng ốc vít.
+
+\item Càng Quadcopter cũng được tạo từ các thanh Carbon rỗng. Phần tiếp xúc với trung tậm điều khiển được kẹp giữa hai tấm Carbon để chắc chắn hơn. Phần dưới cùng của càng sẽ tiếp xúc với mặt đất. Nó cho phép Quad-Rotor cất cánh ổn định hơn từ mặt đất.
+\end{itemize}
 \newpage
        \begin{figure}[h!]
 	        	\begin{center}
 	        		\includegraphics[scale=0.8]{images/retail.png}
-	        		\caption{Các ứng dụng sử dụng Bluetooth beacons}
+	        		\caption{Một Quadcopter}
 	        	\end{center}
         \end{figure}
         
-\textbf{\textit{Vậy Bluetooth Mesh có thể mang lại những tiềm năng gì?}}
-    	\subsection{Bluetooth Mesh ra đời}
-Bluetooth Mesh được tổ chức SIG đưa ra các giao thức (protocol) chung vào tháng 7 năm 2017\cite{meshborn} và chia sẻ nhiều đặc điểm chung với BLE. Về cơ bản, Bluetooth Mesh sử dụng cấu trúc mạng của BLE nên các thiết bị sử dụng mạng BLE có thể tham gia mạng mesh, cấu hình của các gói tin (package) và phương thức quảng bá (advertisement) của cả 2 giống nhau. Tuy nhiên vẫn có những điểm khác nhau giữa lớp Host của cả 2 mạng. Do đó, Bluetooth là một giao thức kết nối, còn Bluetooth Mesh là một giao thức mạng.
-        \begin{figure}[h!]
-        	\begin{center}
-        		\includegraphics[width=11cm]{images/Bluetooth-mesh-vs-BLE.png}
-        		\caption{Mối quan hệ giữa Bluetooth mesh và BLE}
-        	\end{center}
-        \end{figure}
-        \subsection{Sứ mạng của Bluetooth Mesh}
-        Bluetooth Mesh hướng đến những ứng dụng điều khiển hoặc giám sát cần các kết nối nhiều:nhiều (một mạng mesh có khả năng phân tán tốt), số thiết bị có thể lên đến hàng ngàn, theo Nordic thì Bluetooth Mesh hỗ trợ tối đa 32767 thiết bị trong một mạng (con số này dựa trên trường địa chỉ mà giao thức BLE Mesh hỗ trợ) với đường kính mạng tối đa là 127 hops\cite{meshconcept}. Chính Nordic đã thử nghiệm trên hệ thống hơn 1000 thiết bị và đạt kết quả khả quan.\\
-        
-        Định dạng gói tin được tối ưu hóa cho các gói tin nhỏ (kiểu short-burst) chẳng hạn như tắt mở thiết bị, giá trị của số vài cảm biến, giá trị độ sáng bóng đèn,... không dành cho việc truyền dữ liệu hoặc các ứng dụng băng thông cao khác như streaming nhạc và video.
-        \begin{figure}[h!]
-        	\begin{center}
-        		\includegraphics[scale=0.2]{images/Office_4_square_LE-mesh.jpg}
-        		\caption{Hệ thống đèn của một tòa nhà ứng dụng Bluetooth Mesh}
-        	\end{center}
-        \end{figure}
-        
-    \section{Ưu điểm của Bluetooth Mesh}
-    Để tiến hành triển khai các ứng dụng IoT trong thực tế, vấn đề bảo mật là cực kỳ quan trọng, đặc biệt trong các ngành y tế, giao thông và an ninh, hiện nay các hệ thống IoT sử dụng các giao thức thông thường như WiFi, Ethernet, GSM bị xem là bảo mật kém. Kể cả trong các ứng dụng điều khiển trong nhà thì việc một người lạ có quyền tắt mở đèn, quạt trong nhà của chúng ta thì cũng đủ mang lại nhiều phiền phức rồi. \\
-    
-    Vấn đề liên kết giữa các nhà sản xuất cũng quan trọng không kém, chẳng hạn chúng ta mua một bộ gồm đèn và remote của hãng A, sau một thời gian thì thấy đèn của hãng ko bền nên muốn dùng đèn của hãng khác, nhưng remote của hãng A lại không điều khiển được đèn của hãng khác mà mua một remote khác thì tốn kém hơn mua đèn nhiều.\\
-    
-    Ngoài ra còn hai vấn đề không kém phần quan trọng là tính mở rộng và khả năng tiết kiệm năng lượng, tuy nhiên hai vấn đề này lại phụ thuộc vào các ứng dụng thực tế, một số ứng dụng thì cần nhưng một số lại không. Chẳng hạn như những hệ thống nhỏ, có số lượng thiết bị không đáng kể thì không cần thiết có khả năng mở rộng; những ứng dụng như hệ thống đèn có khả năng kết nối trực tiếp với mạng điện lưới thì tiết kiệm năng lượng trở nên không mấy quan trọng.\\
-    
-     \textbf{Bluetooth Mesh là giải pháp hội đủ cả bốn tiêu chí trên, rất thích hợp để làm nền tảng triển khai các ứng dụng từ công nghiệp cho đến dân dụng.}
-        \subsection{Tính bảo mật}
-            \begin{itemize}
-                \item Bluetooth Mesh dùng 3 key để mã hóa: Devive Key, Application Key và Network Key dùng để mã hóa gói tin ở lớp network và application. NetKey giúp chia một mạng mesh thành nhiều subnet, chẳng hạn như subnet trong nhà và subnet ngoài vườn, do tính năng relay gói tin được hiện thức ở lớp Network nên nếu không cùng NetKey thì không thể relay, nghĩa là khác subnet sẽ không truyền tin qua lại được. Như vậy một mạng mesh có thể dùng nhiều NetKey trong đó có một NetKey cho toàn mạng và nhiều NetKey cho các subnet. AppKey mã hóa ở 2 lớp trên cùng là Model và Foundation Model, do đó chỉ có người nhận mới đọc được gói tin ở lớp này.
-                \item NetKey còn được dùng để tạo ra Privacy Key, key này dùng để xáo trộn header của gói tin khiến cho kẻ tấn công không thể xác định địa chỉ nguồn, địa chỉ nhận.
-                \item Mỗi gói tin đều có trường authentication (một cách chứng minh gói tin này xuất phát từ một node trong mạng) dài 64-bits, có thể tăng thêm.
-                \item Chống tấn công kiểu relay bằng cách bắt buộc chỉ số sequence phải thay đổi mỗi lần gửi tin, ngoài ra còn hỗ trợ thêm một trường nonce như một cách redundant, trường này sẽ được tạo mới mỗi khi gửi nhận tin dựa trên 2 thông số là Initialisation Vector (IV) index và chỉ số sequence. Mỗi khi bộ đếm sequence gần cạn kiệt (tràn số hoặc không thể tạo ra nonce mới, nonce mới ở đây yêu cầu phải khác tất cả nonce cũ), lúc này sẽ tiến hành quy trình cập nhật IV cũng tương tự quy trình tạo mới key chống trashcan dưới đây.
-                \item Chống tấn công kiểu brute-force bằng độ dài key vào mạng 128-bits, trường authentication 64-bits.
-                \item Chống tấn công kiểu man-in-the-middle (MITM) bằng cách áp dụng quy trình trao đổi key ECDH\cite{ECDH} cùng với out-of-band authentication (xác thực thông qua một bên thứ ba, có thể là một kênh giao tiếp khác).
-                \item Chống tấn công kiểu trashcan: kẻ tấn công lấy thông tin như key vào mạng từ một node bị hỏng hoặc lỗi nên bị loại khỏi mạng. Cách thức chống kiểu tấn công này sẽ được thảo luận trong phần \ref{removenode}.
-                \item Chống tấn công kiểu vật lý: vì Bluetooth Mesh hỗ trợ mạng lưới thiết bị rộng lớn nên không tránh khỏi việc một số node không an toàn về vật lý: đèn ở ngoài vườn có độ an toàn vật lý thấp hơn hẳn đèn trong phòng ngủ, do đó kẻ tấn công có thể khai thác lỗ hổng này bằng cách tấn công vào node kém an toàn và từ đó điều khiển toàn bộ mạng. Bluetooth Mesh có khả năng phân loại key: key dành cho nhóm kém an toàn khác với key của nhóm an toàn nên các node kém an toàn không điều khiển được các node an toàn.
-                \item Chống tấn công kiểu visitor bằng cách cấp cho các node tạm (trong một số ứng dụng sẽ phát sinh các node cần truy cập tạm thời vào mạng để gửi nhận thông tin) key có thời gian sống giới hạn, sau một thời gian node tạm không còn khả năng truy cập mạng nữa.
-                \item Ngoài ra các gói tin còn được xác thực bằng các thuật toán như AES-CMAC, AES-CCM,...
-            \end{itemize}
-        \subsection{Tính liên kết}
-        Bluetooth Mesh có khả năng liên kết các nhà cung cấp với nhau. WiFi và Zigbee đang được sử dụng phổ biến trong các giải pháp mà Bluetooth Mesh dự định thay thế: smart building, smart home,... nhưng lại thiếu sự tương tác giữa các nhà cung cấp. Các thiết bị của hai hãng khác nhau không thể giao tiếp với nhau, do cấu trúc lệnh của mỗi hãng là do họ tự định nghĩa. Đối với Bluetooth Mesh thì khác, SIG đã định nghĩa sẵn các model như cách BLE đã làm với các profile chuẩn, các nhà sản xuất chỉ việc làm theo đúng chuẩn đó thì điều khiển hãng này dùng cho bóng đèn hãng khác không còn là vấn đề.
-        \subsection{Dễ mở rộng}
-        Do đặc thù là mạng mesh nên ưu điểm của Blueetooth Mesh sẽ là tính phân tán, các node không cần phải đặt tập trung vào một gateway hay access point mà có thể đặt bất cứ nơi đâu tùy theo nhu cầu ứng dụng. Khi áp dụng giao thức BLE Mesh vào trong IoT, phạm vi hoạt động của mạng lưới cảm biến sẽ được mở rộng rất nhiều, chẳng hạn như node A nằm ngoài phạm vi kết nối của node B, tuy nhiên chỉ cần đặt thêm node C vào giữa hai node này, thế là A có thể giao tiếp với B thông qua C, thử tưởng tượng với 127 hops mà khoảng cách giữa 2 node khoảng 8 - 10m (kết quả thử nghiệm thực tế), phạm vi tối đa sẽ đạt tới mức nào? 
-        \subsection{Tiết kiệm năng lượng}
-        Bluetooth Mesh là giao thức mạng, kết thừa các lớp của BLE nên cũng kế thừa khả năng tiết kiếm năng lượng. Ngoài ra, Bluetooth Mesh còn đưa ra khái niệm Friendship, giúp cho các node cần tiết kiệm năng lượng  có thể ở trạng thái sleep lâu hơn mà không bị loại ra khỏi mạng hoặc bỏ lỡ những gói tin được gửi tới nó. 
-        \subsection{Một số ưu điểm khác của Bluetooth Mesh}
-        \begin{itemize}
-            \item Bluetooth Mesh đạt các yêu cầu cho một ứng dụng công nghiệp với đầy đủ các yêu cầu: đáng tin cậy (reliability), dễ mở rộng (scalability) và tính bảo mật cao.
-            \item Sản phẩm dễ được thị trường đón nhận hơn vì Bluetooth đã trở thành thường thức với phần đông dân số thế giới, do đó khi nhà sản xuất miêu tả sản phẩm này áp dụng giao tiếp Bluetooth thì khách hàng dễ hình dung hơn là Zigbee hay Lora nhiều.
-            \item Chức năng Bluetooth vốn tích hợp sẵn trên mọi chiếc điện thoại thông minh, thậm chí điện thoại không thông minh, cũng như rất nhiều thiết bị công nghệ như máy tính bảng, laptop,... Mức độ phổ biến của nó tương ứng với tiềm năng phát triển trong tương lai, khi mà Bluetooth Mesh chấp nhận giao tiếp với thiết bị non-mesh (các thiết bị dùng Bluetooth hiện nay đều là non-mesh), mà theo như thông tin nhóm tìm hiểu thì các một số thiết bị BLE từ 4.0 trở lên và có đủ điều kiện (chẳng hạn như dung lượng bộ nhớ còn trống trong chip) thì có thể giao tiếp với một mạng mesh thông qua ứng dụng.
-            \item Khi mạng lưới càng lớn thì khả năng tự hồi phục của mạng càng mạnh, việc một vài node bị hỏng sẽ không ảnh hưởng tới mạng bất kể node đó có phải relay hay không, bởi vì còn rất nhiều con đường khác - những node relay khác - để gói tin có thể đi qua.
-            \item Khả năng thiết lập kết nối nhanh, khi có phần tử mới muốn tham gia vào mạng, chỉ cần được thiết lập với key hợp lệ.
-            \begin{figure}[h!]
-        	    \begin{center}
-        		    \includegraphics[scale=1.0]{images/mesh-topo.jpg}
-        		    \caption{Mạng mesh với node "bạn bè" và low power}
-        	    \end{center}
-            \end{figure}
+    	\subsection{Linh kiện điện tử}
+Các linh kiện điển tử sử dụng được tóm tắt qua bảng sau:
+\begin{tabular}{|c|c|c|}
+\hline 
+Số lượng & Tên & Trọng lượng \\ 
+\hline 
+4 & Bộ điều tốc & 32g \\ 
+\hline 
+4 & Động cơ không chổi than & 55g \\ 
+\hline 
+1 & Pin Li-Po & 250g \\ 
+\hline 
+4 & Phích cắm & 1g \\ 
+\hline 
+1 & Bộ chuyển đổi 4 ra 1 & 3g \\ 
+\hline 
+1 & Bộ chuyển đổi điện áp & 3g \\ 
+\hline 
+1 & AdruPilot Mega 2.5 & 31g \\ 
+\hline 
+1 & Bộ thu tín hiệu & 9.4g \\ 
+\hline 
+\end{tabular} 
+
+\begin{itemize}
+\item Bộ điều tốc được sử dụng được thiết kế riêng cho động cơ có nhiều Rotor. Mỗi bộ điều tốc nặng 32 gam với kích thước 55mmx26mmx11.6mm (rộng, dài, cao). Bộ điều tốc cung cấp năng lượng cho Motor và kiểm soát tốc độ quay của Rotor. Bộ điều tốc này cũng có chức năng giảm điện áp khi Quadcopter hoạt động ở công suất thấp.
+
+\item Các động cơ được sử dụng là động cơ không chổi than. Mỗi động cơ nặng 55gam (có thể lên tới 800gam tùy vào cánh quạt sử dụng) và có kích thước 27.5mm x 28mm (dài, cao).
+
+\item Pin được sử dụng là pin Li-Po. Nó có điện áp 11.1V và dung lượng pin là 3300mAH. Dung lượng pin càng lớn thì thời gian sử dụng càng nhiều. Do ta đang sử dụng 4 motor nên ta phải dùng pin có năng lượng đủ lớn. Tuy nhiên nếu pin có dung lượng càng lớn thì kích thước và trọng lượng càng tăng. Trong Quadcopter này, ta dùng pin nặng 250gam và có kích thước 43mm x 130mm x 13mm (rộng, dài, cao). Quad-Rotor có thể bay trong vòng 10 – 15 phút với loại pin Li-po này.
+
+\item Các phích cắm được hàn với bộ điều tốc để nối với pin qua lỗ cắm. Nó có thể cho dòng điện có cường độ 40A chạy qua. Ta cũng có thể dễ dàng cắm, rút phích vào/ra lỗ cắm.
+
+\item Bộ chuyển đổi gồm 4 lỗ cắm ra 1 phích cắm. Phích cắm của bộ điều tốc sẽ cắm vào 4 lỗ cắm của bộ chuyển đổi. Phích cắm của bộ chuyển đổi sẽ nối với pin. Chỉ cần 1 bộ chuyển đổi là có thể cấp năng lượng cho 4 bộ điều tốc từ 1 viên pin.
+
+\item Bộ chuyển đổi điện áp có đầu ra là 6 cổng cung cấp điện áp 5.3V và dòng điện 2.25 A. Ta sử dụng bộ chuyển đổi điện áp để cấp nguồn cho ArduPilot Mega. Bộ chuyển đổi chấp nhận nguồn vào lên đến 18V và 90A.
+
+\item ArduPilot Mega 2.5 là một trình điểu khiển hệ thống mã nguồn mở. Phiên bản Ardupilot này có thiết kế PnP, không cần phải lập trình. Tuy nhiên, nó cũng cho phép người dùng lập trình bằng phần mềm Arduino. Chức năng của thiết bị này là biến các phương tiện như xe, thuyền, máy bay thành các phương tiện không người lái.
+
+\item Ta sử dụng bộ thu tín hiệu 8 kênh có tần số 2.4GHz. Nó được kết nối với vệ tinh. AR 8000 hoạt động trên tần số vô tuyến, nó có thể thấy được sự thay đổi của tín hiệu ngoài môi trường. Tín hiệu từ bộ thu sẽ được xử lý bằng phần mềm Spektrum để tạo thành “hình ảnh” sinh động nhất của tín hiệu vô tuyến. Sử dụng tần số 2.4GHz sẽ giúp tín hiệu được truyền tải liên tục, không bị nhiễu bởi các tần số khác. Sau khi kết nối bộ thu - phát tín hiệu thì bộ thu – phát sẽ chỉ kết nối với nhau nên nó không bị các tín hiệu khác làm nhiễu.
         \end{itemize}
-        \newpage
-    \section{Kiến trúc Bluetooth Mesh}
-    Trong phần này, nhóm sẽ trình bày những đặc điểm chính của từng thành phần trong kiến trúc Bluetooth Mesh. Mô hình kiến trúc được thể hiện trong hình bên dưới:
-    
-    \begin{figure}[h!]
-    	\begin{center}
-    		\includegraphics[scale=0.8]{images/mesh-architexture.jpg}
-    		\caption{Kiến trúc Bluetooth mesh}
-    	\end{center}
-    \end{figure}
-    
-    \subsection{Lớp Model}
-    Lớp model chịu trách nhiệm hiện thực các model, nghĩa là hiện thực các hành vi, trạng thái, gói tin điều khiển,... Tham khảo thêm về các model chuẩn trong phần phụ lục \ref{models}.
-    \subsection{Lớp Foundation Model}
-    Lớp Foundation Model như một lớp đệm cho lớp Model, thiết lập và quản lý lớp Model cho thích hợp với mạng mesh.
-    \subsection{Lớp Access}
-    Lớp Access kết nối và giúp 2 lớp trên (lớp Model và Foundation Model, nếu gộp 2 lớp này lại thì giống với lớp Apllication trong mô hình OSI) sử dụng tài nguyên là các lớp bên dưới.
-    \begin{itemize}
-        \item Định nghĩa cấu trúc của 2 lớp trên
-        \item Định nghĩa và điều khiển quá trình mã hóa, giải mã trong lớp Upper transport
-        \item Kiểm tra và xác nhận gói tin được gửi từ lớp Upper transport là đúng mạng và đúng ứng dụng trước khi chuyển lên lớp cao hơn
-    \end{itemize}
-    \subsection{Lớp Upper Transport}
-    Lớp Upper transport chịu trách nhiệm mã hóa, giải mã và xác thực gói tin chuyển xuống (lúc gửi) hoặc trước khi chuyển lên (lúc nhận) lớp Access. Lớp này cũng chịu trách nhiệm tạo ra và vận chuyển các gói tin đặc biệt qua lại giữa các node: bao gồm các gói tin liên quan đến friendship và heartbeats.
-    \subsection{Lớp Lower Transport}
-    Lớp Lower transport nhận gói tin từ lớp Upper transport layer và chia nhỏ nếu gói tin quá dài, vượt quá giới hạn của lớp này. Trong trường hợp nhận, lớp Lower transport sẽ chịu trách nhiệm ghép gói tin lại nếu nó đã bị chia nhỏ, sau đó chuyển lên lớp trên.
-    \subsection{Lớp Network}
-    Lớp Network định nghĩa các kiểu địa chỉ (unicast, vitural, group) cũng như cấu trúc của gói tin ở lớp này, cho phép gói tin từ lớp Transport đi xuống lớp Bearer. Lớp này hỗ trợ nhiều bearer (một dạng kênh truyền), trong đó mỗi bearer lại mang nhiều network interface, network interface là cách để các element của các node giao tiếp với nhau, bao gồm cả các element trong cùng 1 node (local network interface). \\
-    
-    Lúc gửi dữ kiệu lớp Network layer sẽ quyết định gửi gói tin tới network interface nào, sau đó lớp này sẽ thông qua bộ lọc để lọc các dữ liệu được đưa xuống lớp Bearer. Lúc nhận gói tin từ lớp Bearer, một bộ lọc sẽ lọc xem gói tin nào sẽ được đưa tiếp lên lớp trên (khi đúng network interface), gói tin nào sẽ bỏ qua. Tính năng Relay và Proxy được hiện thực ở lớp Network.
-    \subsection{Lớp Bearer}
-    Các gói tin mesh cần một nền tảng để gửi nhận, nền tảng đó chính là BLE, lớp Bearer sẽ định nghĩa cách các gói tin được xử lý và vận chuyển. Hiện nay có hai Bearer là Advertising Bearer và GATT Bearer.\\
-    
-    Advertising Bearer kế thừa tính năng quảng bá (advertising) và dò tìm (scanning) của BLE GAP để gửi nhận các gói tin mesh. Còn GATT Bearer cho phép các thiết bị không hỗ trợ Advertising Bearer giao tiếp gián tiếp với các node trong mạng mesh thông qua giao thức Proxy. Node sử dụng giao thức này gọi là node Proxy, node sử dụng Proxy và node sử dụng Advertising Bearer có thể giao tiếp với nhau một cách bình thường.\\
-    
-    Giao thức Proxy sử dụng profile GATT vốn là profile cơ bản nhất của BLE, trong đó giao thức này sẽ sử dụng một số characteristics được định nghĩa sẵn để giao tiếp (Mesh Proxy Data). Gói tin sẽ được write vào characteristics Mesh Proxy Data In của node proxy, gói tin sẽ được lấy ra từ characteristics Mesh Proxy Out.
-     \section{Nguyên lý hoạt động của Bluetooth Mesh}
-            \subsection{Phần tử trong mạng}
-            Mỗi thiết bị tham gia trong mạng được gọi là một node, trong một ứng dụng thực tế thì mỗi một node đều có thể có nhiệm giống hoặc khác nhau, chẳng hạn như node đọc giá trị cảm biến do tính chất đọc theo chu kỳ nên có thể dùng nguồn pin và chạy low power, node gateway lại cần cấp nguồn liên tục để cập nhật tình hình với server,... Trong mạng Bluetooth Mesh có 4 loại node đặc biệt như sau:
-            \begin{itemize}
-                \item Low-power: tiêu tốn năng lượng cực thấp, có thể hoạt động trong vòng vài năm với nguồn pin coin (coin battery).
-                \item Friend: bắt buộc phải có nếu trong mạng có node low-power, bởi vì mỗi khi node low-power muốn giao tiếp, nó sẽ chỉ giao tiếp với node friend của nó, còn node friend có nghĩa vụ lưu lại những dữ liệu mà các node khác gửi cho node low-power. Do đó node friend cần cấp nguồn liên tục.
-                \item Relay: node relay sẽ broadcast bất cứ dữ liệu nào được gửi đến nó mà nó ko phải người nhận duy nhất, giúp mở rộng mạng mesh. Node relay cũng cần cấp nguồn liên tục.
-                \item Proxy: node này liên kết các node trong mạng mesh với các thiết bị sử dụng BLE và không nằm trong mạng mesh, node proxy cũng cần năng lượng và thêm khả năng tính toán của vi xử lý.
-            \end{itemize}
-            \newpage
-            Dù các node có hay không 4 chức năng trên, cấu trúc một node cũng gồm nhiều thành phần nhỏ hơn được thể hiện trong các hình sau:
-            \begin{figure}[h!]
-            	\begin{center}
-            		\includegraphics[scale=0.2]{images/mesh-node.jpg}
-            		\caption{Cấu trúc của một node}
-            	\end{center}
-            \end{figure}
-
-            Mỗi node phải gồm ít nhất một element - element sẽ định nghĩa các state (trạng thái) hoặc chức năng (functionality) của node. Ví dụ một node điều khiển nhiều thiết bị, các thiết bị là các element và mỗi element lại có nhiều trạng thái khác nhau, mỗi trạng thái là một model (model server). Hình bên dưới minh họa element đèn bao gồm 2 model trạng thái đèn và model độ sáng đèn.
-            \begin{figure}[h!]
-            	\begin{center}
-            		\includegraphics[scale=0.2]{images/lighbulb-node.jpg}
-            		\caption{Cấu trúc của một node bóng đèn}
-            	\end{center}
-            \end{figure}
-
-            Các model trong giao thức Bluetooth Mesh được phân làm 3 loại:
-            \begin{itemize}
-                \item Server: thể hiện trạng thái, như trong ví dụ trên. Sau đó nhận tin từ các node khác để thay đổi trạng thái và xuất tín hiệu ra các chân I/O, PWM tương ứng.
-                \item Client: thể hiện chức năng, bao gồm các hàm có chức năng thay đổi trạng thái của các model server.
-                \item Control: thể hiện cả trạng thái và chức năng, cộng thêm liên hệ logic giữa trạng thái và chức năng. Ví dụ một model control quạt dựa vào nhiệt độ, model này có chức năng lấy dữ liệu nhiệt độ từ cảm biến (của một node khác), sau đó kiểm tra ngưỡng rồi quyết định bật hay tắt quạt.
-            \end{itemize}
-
-            Trong đề tài này node gateway sẽ dùng model Simple OnOff client, node cảm biến sẽ dùng model Simple OnOff server. Node cảm biến lưu giữ trạng thái đèn (nhóm đã cải tiến thành lưu giữ giá trị cảm biến, xem phần \ref{simpleonoff}), node gateway sẽ đọc dữ liệu này để gửi lên server, nhóm có hiện thực thêm chức năng client gửi tín hiệu tắt/mở LED để tiện demo. Do đó có hiện tượng cùng một biến 8-bits nhưng có lúc lưu giữ giá trị cảm biến, có lúc lưu trạng thái đèn.
-            \subsection{Truyền tin trong mạng}
-            Bluetooth Mesh dùng cơ chế flooding để lan truyền gói tin, nghĩa là gói tin cần gửi sẽ được boardcast ra các node xung quanh, các node được boardcast sẽ kiểm tra mình có phải người nhận hay không, nếu không thì tiếp tục boardcast (còn gọi là relay, các node relay cần cung cấp nguồn đầy đủ và liên tục) cho đến khi tới được người nhận nếu là địa chỉ là unicast (hoặc một nhóm nhận nếu là địa chỉ multicast). Quá trình flooding này dừng lại khi đạt giới hạn 127 hops hoặc vượt quá thông số Time To Live (TTL) - thông số này tương đương số lần gói tin được relay\cite{meshgloss}.\\
+    \section{Nguyên lý hoạt động}
+    Một Quadcopter gồm 4 động cơ cánh quạt gắn với nhau. Khi động cơ quay, nó sẽ tạo ra lực nâng theo phương thẳng đứng.Cánh quạt quay càng nhanh thì lực nâng càng lớn và ngược lại. Vì thế, Quadcopter có thế bay lên cao hoặc hạ xuống thấp nhờ vào sự thay đổi tốc độ quay của các cánh quạt. Để Quad-rotor bay được thì tổng lực nâng tạo ra bởi 4 động cơ phải bằng hoặc lớn hơn lực hấp dẫn của Quadcopter.  
+    Quadcopter có thể di chuyển theo phương ngang bằng cách thay đổi lực nâng của các cặp cánh quạt.    		Nếu tất cả các Rotors quay theo chiều kim đồng hồ, Quadcopter sẽ bị mất kiểm soát do phản lực của momen xoắn. Để tránh trường hợp trên thì ta sẽ cho cặp cánh phía trước (front) và cặp cánh phía sau (back) quay ngược chiều kim đồng hồ, trong khi đó cặp cánh bên phải (right) và bên trái (left) lại quay cùng chiều kim đồng hồ để triệt tiêu các momen xoắn.   
+        \subsection{Hệ quy chiếu}
+Quadcopter được mô hình hóa theo hệ tọa độ tham chiếu Trái Đất Phẳng. Hệ toạ độ tham chiếu Trái Đất Phẳng bỏ qua lực ly tâm và gia tốc Coriolis.
+Khung tham chiếu gồm các trục tọa độ (x, y, z) là hệ thống các trục đơn giản được dùng để xác định số lượng hoặc độ lớn. Hệ trục này có thể được gắn vào thân của vật hoặc Trái Đất. Trong trường hợp này, các trục của vật (xb,yb,zb) đang quay với trọng tâm là Quad-Rotor và các trục Trái Đất (xe, ye, ze) được biểu diễn như hình.                     
+        \subsection{Mô hình động lực học}
+        Nguyên lý hoạt động chính của mô hình này hoạt động dựa trên sự chuyển động của các dòng khí do cánh máy bay tạo ra và sự điều chỉnh vận tốc quay của cánh quạt sẽ làm thay đổi hướng bay của Quadcopter.\\
+        Để mô tả chuyển động của Quadcopter ta cần 2 hệ quy chiếu:
+        \begin{itemize}
+        \item e1 hệ quy chiếu Trái Đất.
+        \item eB hệ quy chiếu khung Quadcopter.
+        \end{itemize}
+        \\
+        Sự định hướng Quadcopter được biểu thị bởi 3 góc Euler qua ma trận xoay R(1)
+        \\
+        Lực sinh ra của các rotors:
+        \\
+        Khi đó lực nâng cho cả khung máy bay là:
+        \\
+        Phương trình mô tả gia tốc Quadcopter:
+        \\
+        Phương trình quan hệ giữa ma trận quán tính, momen quay M và momen quay hồi chuyển:
+        \\
+        Ta có momen quay hồi chuyển phụ thuộc vào các yếu tố vận tốc xoay với u1 = T, u2, u3, u4 lần lượt là các đơn vị momen quay các chuyển động roll, pitch, yaw hay vận tốc quay uT=(u1, u2, u3, u4) và vận tốc góc wi máy bay sẽ được g(u) = w1 + w2 - w3 - w4 (5)
+        \\
+        Kết hợp (5) với (3) và (4) ta có phương trình động lực học: (6) 
+        \subsection{Mô hình tính toán khí động học}
+        Việc tính toán khí động học mô tả các tác động khi quay của cánh quạt trong không khí. Với các thông số TMT(N) là lực đẩy của cánh quạt, hướng lên, S(m2) là diện tích của cánh quạt, ps (kg/m3) là mật độ không khí
+        \\
+        Ta có phương trình lực đẩy:
+        \\
+        TMT = 2psSv12(N)
+        \\
+        Do lực đẩy TMT = Wp = mg/4 (trọng lượng được mang bởi 1 cánh quạt):
+        \\
+        Vận tốc dòng khí cho mỗi cánh quạt V1 = \sqrt{(Wp)/(2psS)} (m/s) 
+     \section{Bộ điều khiển bay Quadcopter}
+     \subsection{Thiết kế bộ điều khiển bay}
+            Bộ điều khiển phải đảm bảo rằng Quadcopter phải đáp ứng được các yêu cầu đầu vào một cách chính xác nhất. Một cấu trúc kiểm soát vòng lặp kín được sử dụng trong bộ điều khiển này vì nó sẽ làm giảm sự xáo trộn và thích nghi nhanh với bất kỳ thay đổi nào trong quá trình bay của Quadcopter. Sự phân bố trọng lượng không đều của Quadcopter cũng có thể giải quyết bằng vòng lặp kín.
+            \\
+            Bộ điều khiển vòng lặp kín phải đảm bảo output phải sát với input. Vòng lặp điều khiển kín là nghịch đảo của động lực Quad-Rotor. Khi biết được động lực của Quad-Rotor, bộ điều khiển sẽ được điều chỉnh và nghịch đảo của động lực Quad-Rotor sẽ được tính. Kết quả tín hiệu điều khiển "U" được đưa vào mô hình để cho ra output mong muốn. 
+            \subsection{Nguyên lý hoạt động}
+            Bộ điều khiển được xây dựng với các vòng lặp PD. Các vòng lặp PD sẽ có trong các hành vi, độ cao và vị trí của Quad-Rotor để tạo ra tín hiệu điều khiển tương ứng. Quad-Rotor sẽ sử dụng hệ thống điều khiển PD để xác định thời gian phản hồi và giải quyết yêu cầu của nó. Bộ điều khiển PD là một hệ thống phản hồi vòng lặp kín mà nó sẽ dùng output của tín hiệu điều khiển và gửi nó vào tín hiệu input ban đầu. Ta sẽ tính toán được sự khác nhau giữa hai tín hiệu và đưa ra sự điều chỉnh. Trong trường hợp này, vị trí và hướng của Quad-Rotor hiện tại (tín hiệu output) sẽ được gửi đến và so sánh với vị trí và hướng mong muốn (tín hiệu input) để cho phép hệ thống điều chỉnh input và các quá trình tương ứng.
+\\
+			Tín hiệu sai số được thể hiện bằng.
+			\\
+			Trong đó, e(t) là tín hiệu sai số, r(t) là tín hiệu input, y(t) là tín hiệu output.
+			\begin{itemize}
+			\item "Điều khiển tỷ lệ" là thuật ngữ phụ thuộc vào sai số điều khiển. Nó có thể kiểm soát bất cứ phần ổn định nào. Tăng tính cân đối sẽ làm giảm thời gian phản hồi của hệ thống điều khiển. Tuy nhiên, nếu tăng tính cân đối quá cao thì hệ thống sẽ không ổn định. Phương trình cân đối:
+\\
+Trong đó, u(t) là tín hiệu input trong Quad-Rotor, e(t) là tín hiệu lỗi, kp là gia lượng tỷ lệ.
+			\item Điều khiển dẫn xuất là khái niệm output giảm khi các biến quá trình đang tăng. Nó tác động lên tỷ lệ thay đổi lỗi. Tăng điều khiển dẫn xuất sẽ làm cho hệ thống phản hồi mạnh mẽ với các thay đổi của lỗi và tăng tốc độ phản hồi.
+			\\
+			Trong đó, Kd là hệ số đạo hàm
+			\item Để xác định được giá trị của Kp và Kd, ta phải điều chỉnh bộ điều khiển cho đến khi đạt được  phản hồi mong muốn. Ta dùng phương pháp Ziegler-Nichols và thủ công (trong hầu hết các trường hợp) để điều chỉnh các tỷ lệ và giá trị phái sinh. Ngoài ra, ta có thể dùng Simulink để điều chỉnh các giá trị tự động nhưng vẫn đáp ứng được yêu cầu của phản hồi.
+			\end{itemize}
+			\subsection{Cấu trúc bộ điều khiển}
+			Các góc Roll, Pitch, Yaw được điều khiển bởi các vòng lập PD bên trong, trong khi độ cao và vị trí được kiểm soát bởi các vòng lặp PD bên ngoài. Các vòng lặp ngoài sẽ tạo ta các giá trị mong muốn cho vòng lặp bên trong. Ta sẽ tập trung vào từng khối chi tiết trong phần sau.
+\\
+			\begin{itemize}
+			\item Kiểm soát hành vi
+			\\Vòng lập bên trong kiểm soát các góc Roll, Pitch và Yaw. Giả sử các trục x,y của Quad-Rotor đối xứng, tức là điều khiển góc Pitch và Roll giống nhau. Góc Pitch giảm khi di chuyển Quad-Rotor về phía trước dọc theo trục X trong khi góc Roll thì di chuyển Quad-Rotor về bên hông.
+ROLL: Tín hiệu điều khiển U2 được tạo ra từ roller hoặc được truyền vào thông qua bộ điều khiển PD. Tín hiệu này sẽ điều chỉnh góc Roll của Quad-Rotor.
+PITCH: Tín hiệu điều khiển U3 được tạo ra từ pitcher hoặc được truyền vào thông qua bộ điều khiển aPD. Tín hiệu này sẽ điều chỉnh độ cao của Quad-Rotor. Như đã nói ở trên giá trị của P và D của góc Roll và Pitch là như nhau.
+YAW: Tín hiệu điều khiển U4 được tạo ra từ yawer hoặc được truyền vào thông qua bộ điều khiển PD. Tín hiệu này sẽ điều khiển góc YAW của Quad-Rotor. Giá trị của các góc Pitch, Roll, Yaw được đo sẽ là giá trị được nạp từ output của mẫu thử.
+\\
+			\item Kiểm soát độ cao
+			\\
+			Điều khiển vòng lặp ngoài này sẽ tạo ra một lực đẩy Td để nâng Quad-Rotor lên độ cao mong muốn. Nó được nạp thông qua bộ điều khiển PD. Td sau đó được chuyển đến bộ điều khiển độ cao để bù trừ cho hao hụt do vector của góc Pitch và Roll. Do đó, tín hiệu điều khiển U1 sẽ giữ được độ cao mong muốn của Quad-Rotor mà ngay cả khi góc Roll và Pitch thay đổi. Các khối điều khiển sau sẽ cho thấy vòng điều lặp điều khiển và tín hiệu tương ứng bên trong bộ điều khiển độ cao. Phản hồi nhận được cung cấp độ cao của Quad-Rotor.
+\\
+			\item Kiểm soát vị trí
+			\\
+			
+		Vòng lặp ngoài này sẽ tính toán các góc roll và pitch để đưa Quad-Rotor đến vị trí X và Y mong muốn. Dữ liệu phản hồi từ mô hình cung cấp giá trị X và Y. Tín hiệu vị trí sau khi tổng hợp được nạp thông qua một bộ điều khiển PD và nó tạo ra các góc Roll và Pitch mong muốn. Như đã đề cập trước đó, output của nó sẽ được nạp vào bộ điều khiển hành vi để tạo ra các tín hiệu điều khiển U2 và U3.
+\\
+			\item Kiểm soát điện áp của các Rotors
+			\\
+			Bốn inputs điều khiển được tạo ra bởi các vòng lặp trong và ngoài, nó không nạp trực tiếp vào mô hình Quad-Rotor vì nó là inputs lực đẩy cho bốn động cơ cánh quạt. Các tín hiệu điều khiển U được kết hợp để tạo ra tín hiệu điện áp cho mỗi Rotor. Sự kết hợp này dựa vào lực của Quad-Rotor để hiển thị thông số bay tương ứng. Sự kết hợp này đã được nói ở phần động cơ Rotor và được hiển thị như sơ đồ khối bên dưới. Điện áp đầu ra V sau đó được chuyển thành lực đẩy động cơ của mô hình.
+  
+			\end{itemize}
             Sau đó, Bluetooth Mesh dùng cơ chế publish-subscribe để các gói tin tới được nơi cần tới. Các địa chỉ unicast được đánh cho các element trong node và được gọi là publish address, còn có multicast address và vitural address bao gồm nhiều element (địa chỉ multicast thường đại diện cho cho một tầng lầu, một phòng,... trong thực tế). Khi có tin mới được gửi đến một địa chỉ publish address, bất kỳ những model nào (element bao gồm nhiều model) trong element và có đăng ký nhận tin (subscribe) ở địa chỉ đó sẽ nhận được tin.
         
             \begin{figure}[h!]
