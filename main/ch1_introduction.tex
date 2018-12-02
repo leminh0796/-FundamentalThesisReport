@@ -1,24 +1,25 @@
 \chapter{Giới thiệu đề tài}
 \pagestyle{fancy}
-Robotics là một lĩnh vực nhận được sự quan tâm lớn từ các nhà nghiên cứu. Trong đó, UAV là mảng đang được nghiên cứu và đưa vào ứng dụng rất lớn. Sự nổi trội này dựa trên cơ sở của sự phát triển các hệ thống nhúng, trong đó phải kể đến vi điều khiển, vi xử lý, các thiết bị cảm biến (GPS, vận tốc, gia tốc, hồng ngoại,…) và hạ tầng mạng tốc độ cao ngày càng được phủ rộng.
-Các UAV đang tỏ rõ sự ưu việt của mình do đặc điểm nhỏ gọn, dễ sử dụng, phạm vi hoạt động rộng, chi phí thấp. Có thể kể đến một số ứng dụng thực tế như UAV mang theo các máy chụp ảnh, máy quay được các nhà làm phim sử dụng nhằm mang đến một góc nhìn mới lạ mà trước kia rất tốn kém mới có thể đạt được; UAV mang theo nhiều loại cảm biến giúp các nhà khoa học khám phá những nơi mà con người khó đặt chân đến; trong lĩnh vực quân sự UAV cũng tỏ rõ lợi thế trong việc do thám với chi phí thấp và không cần mạo hiểm mạng sống binh lính; và một ứng dụng vừa được các công ty thương mại điện tử lớn áp dụng đó là giao hàng tận nơi, từ đó hướng đến việc tự động hoá hoàn toàn từ khâu đặt hoàn đến khâu chuyển phát.
-Chưa dừng lại ở đó, các ứng dụng từ UAV còn được nâng lên tầm cao mới với việc cho phép nhiều UAV hoạt động cùng lúc theo cơ chế bây đàn (Swarm Model for UAV), đây là vấn đề chính mà đề tài này hướng đến mà cụ thể là UAV bốn cánh quạt (Quadcopter).
-Các ứng dụng thực tế của mô hình này có thể kể đến như giúp các nhà khoa học khám phá và dựng lại bản đồ ba chiều của môi trường rừng phức tạp, nhiều UAV thì đồng nghĩa với việc nhiều cảm biến và lượng thông tin thu về nhiều hơn. Ngoài ra, đây là môi trường mà nhiều chướng ngại vật và tín hiệu mạng di động không ổn định, từ đó một bầy UAV chứng tỏ rõ ưu thế rõ của mình khi các UAV có thể là phương án dự phòng cho nhau để gửi dữ liệu về máy chủ và tăng tỉ lệ hoàn thành nhiệm vụ mà người điều khiển đặt ra so với việc hoạt động một UAV độc lập. Đối với ứng ụng UAV vào việc vận tải hàng hoá nhẹ thì bầy UAV mang lại tải trọng lớn hơn, gần như tỉ lệ thuận với số lượng UAV tăng thêm so với một UAV.
-Nhìn chung, việc tăng số lượng UAV thực hiện một nhiệm vụ nào đó lúc mang lại nhiều ưu điểm rõ rệt. Tuy nhiên, mô hình này cũng đặt ra nhiều thách thức như tránh va chạm giữa các UAV, kiểm soát vị trí tương đối giữa các UAV với nhau, phân công công việc cho các UAV, giải thuật chọn ra UAV leader tối ưu để dẫn dắt cả bầy và UAV leader có trách nhiệm giao tiếp với máy chủ.
+Robotics là một lĩnh vực nhận được sự quan tâm lớn từ các nhà nghiên cứu. Trong đó, UAV là mảng đang được nghiên cứu và đưa vào ứng dụng rất lớn. Sự nổi trội này dựa trên cơ sở của sự phát triển các hệ thống nhúng, trong đó phải kể đến vi điều khiển, vi xử lý, các thiết bị cảm biến (GPS, vận tốc, gia tốc, hồng ngoại,…) và hạ tầng mạng tốc độ cao ngày càng được phủ rộng.\\
+Các UAV đang tỏ rõ sự ưu việt của mình do đặc điểm nhỏ gọn, dễ sử dụng, phạm vi hoạt động rộng, chi phí thấp. Có thể kể đến một số ứng dụng thực tế như UAV mang theo các máy chụp ảnh, máy quay được các nhà làm phim sử dụng nhằm mang đến một góc nhìn mới lạ mà trước kia rất tốn kém mới có thể đạt được; UAV mang theo nhiều loại cảm biến giúp các nhà khoa học khám phá những nơi mà con người khó đặt chân đến; trong lĩnh vực quân sự UAV cũng tỏ rõ lợi thế trong việc do thám với chi phí thấp và không cần mạo hiểm mạng sống binh lính; và một ứng dụng vừa được các công ty thương mại điện tử lớn áp dụng đó là giao hàng tận nơi, từ đó hướng đến việc tự động hoá hoàn toàn từ khâu đặt hoàn đến khâu chuyển phát.\\
+Chưa dừng lại ở đó, các ứng dụng từ UAV còn được nâng lên tầm cao mới với việc cho phép nhiều UAV hoạt động cùng lúc theo cơ chế bây đàn (Swarm Model for UAV), đây là vấn đề chính mà đề tài này hướng đến mà cụ thể là UAV bốn cánh quạt (Quadcopter).\\
+Các ứng dụng thực tế của mô hình này có thể kể đến như giúp các nhà khoa học khám phá và dựng lại bản đồ ba chiều của môi trường rừng phức tạp, nhiều UAV thì đồng nghĩa với việc nhiều cảm biến và lượng thông tin thu về nhiều hơn. Ngoài ra, đây là môi trường mà nhiều chướng ngại vật và tín hiệu mạng di động không ổn định, từ đó một bầy UAV chứng tỏ rõ ưu thế rõ của mình khi các UAV có thể là phương án dự phòng cho nhau để gửi dữ liệu về máy chủ và tăng tỉ lệ hoàn thành nhiệm vụ mà người điều khiển đặt ra so với việc hoạt động một UAV độc lập. Đối với ứng ụng UAV vào việc vận tải hàng hoá nhẹ thì bầy UAV mang lại tải trọng lớn hơn, gần như tỉ lệ thuận với số lượng UAV tăng thêm so với một UAV.\\
+Nhìn chung, việc tăng số lượng UAV thực hiện một nhiệm vụ nào đó lúc mang lại nhiều ưu điểm rõ rệt. Tuy nhiên, mô hình này cũng đặt ra nhiều thách thức như tránh va chạm giữa các UAV, kiểm soát vị trí tương đối giữa các UAV với nhau, phân công công việc cho các UAV, giải thuật chọn ra UAV leader tối ưu để dẫn dắt cả bầy và UAV leader có trách nhiệm giao tiếp với máy chủ.\\
 Đây là một bài toán hay, đòi hỏi sự phải làm chủ được kiến thức về phần cứng lẫn phần mềm. Từ đó đưa ra được mô hình điều khiển các UAV theo cơ chế bày đàn, đánh giá được tính khả thi khi áp dụng mô hình vào thực tế.
 
     \section{Nhiệm vụ cần đạt}
     \begin{itemize}
-        \item Nghiên cứu giải thuật để điều khiển một UAV cơ bản, các tham số liên quan đến việc giữ thăng bằng, di chuyển của một UAV trong không trung.
-        \item Làm chủ hệ thống các cảm biến siêu âm, gia tốc, vận tốc, GPS để đảm bảo khoảng cách an toàn giữa các UAV và tránh va chạm.
-        \item Hiện thực mô hình giao tiếp, truyền nhận thông tin giữa các UAV, giữa UAV với máy chủ.
+        \item Nghiên cứu giải thuật để điều khiển một Quadcopter cơ bản, các tham số liên quan đến việc giữ thăng bằng, di chuyển của một Quadcopter trong không trung.
+        \item Nghiên cứu các giải thuật mô hình UAVs theo bầy đàn, chọn giải thuật phù hợp nhất cho việc hiện thực đề tài.
+        \item Tìm hiểu và sử dụng công cụ mô phỏng Quadcopter, tùy biến công cụ để có thể áp dụng giải thuật bầy đàn.
+        \item Xây dựng mô hình Quadcopter theo bầy đàn. Làm chủ hệ thống các cảm biến siêu âm, gia tốc, vận tốc, GPS để đảm bảo khoảng cách an toàn giữa các Quadcopters và tránh va chạm.
         \item Đánh giá được ưu nhược của mô hình đã nghiên cứu, đưa ra đề xuất khi áp dụng vào thực tế.
     \end{itemize}
 
-    \section{Tóm lược nội dung luận văn}
+    \section{Tóm lược nội dung đề cương luận văn}
         \begin{itemize}
             \item Chương 1: Giới thiệu sơ lược về nội dung của đề tài, tính cần thiết của việc nghiên cứu mô hình, nêu ra nhiệm vụ cần đạt của đề tài nghiên cứu.
-            \item Chương 2: Work in progress ...
-            \item Chương 3: Work in progress ...
+            \item Chương 2: Trình bày nguyên lý hoạt động của một quadcopter bao gồm mô hình động lực học và nguyên lý điều khiển của một Quadcopter, trình bày về các giải thuật bầy đàn cho mô hình quadcopter.
+            \item Chương 3: Đưa ra mô hình thiết kế cho hệ thống quadcopter bay theo bầy đàn, hệ thống phần cứng; phần mềm điều khiển và mô phỏng bay cho quadcopter.
         \end{itemize}
 

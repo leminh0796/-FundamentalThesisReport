@@ -16,6 +16,24 @@
     \end{figure}
     
 \section{Phần cứng} 
+	Để quadcopter có thể bay được ổn định cần các thành phần sau:
+	\begin{itemize}
+    	\item 1 x Bộ khung cơ khí
+    	\item 4 x Động cơ không chổi than (brushless)
+    	\item 4 x Bộ điều tốc ESC
+    	\item 4 x Cánh quạt
+    	\item 1 x Vi xử lý
+    	\item 1 x Đơn vị đo lường quán tính IMU
+    	\item 1 x Pin Li-Po
+    	\item 1 x Bộ giao tiếp để điều khiển (RC, Wifi, Bluetooth, Zigbee)
+    \end{itemize}
+    Ngoài ra để hỗ trợ tối ưu khả năng điều khiển và hiện thực mô hình bầy đàn cần có thêm các thành phần:
+    \begin{itemize}
+    	\item 1 x Module GPS
+    	\item 1 x Cảm biến độ cao
+    	\item 10 x Cảm biến siêu âm
+    	\item 1 x Vi xử lý phụ
+    \end{itemize}
     \subsection{IMU - Đơn vị đo lường quán tính}
     Đơn vị đo lường quán tính là một thiết bị điện tử đo lường lực, tỷ lệ góc và đôi khi là từ trường bao quanh vật thể được dùng. IMU sử dụng kết hợp gia tốc kế, con quay hồi chuyển và từ kế. Nó là một thiết bị không thể thiếu cho các mô hình trên không bao gồm các thiết bị bay không người lái đặc biệt là quadcopter.\\
     Một bộ IMU khác biệt so với dùng các cảm biến riêng lẻ ở chỗ nó bao gồm những tập lệnh được thiết kế cho các phép tính toán ba chiều, tính toán hướng và góc. Mục đích chính là giảm tải thời gian và công suất xử lý cho bộ xử lý trung tâm. Kết quả trả về của nó có thể là giá trị analog hoặc digital đã tính toán tùy chỉnh.
