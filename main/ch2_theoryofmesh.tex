@@ -168,5 +168,37 @@ Trong đó, u(t) là tín hiệu input trong Quadcopter, e(t) là tín hiệu l�
 	        	\end{center}
         \end{figure}
 			\end{itemize}
-			\section{Các giải thuật quadcopter theo bầy đàn}
-			Work in progress...
+			\section{Giải thuật quadcopter theo bầy đàn}
+			\subsection{Hành vi bầy đàn}
+			Các Quadcopters có thể tự hoạt động theo nhiều nhóm với sự hỗ trợ của giải thuật bầy đàn. Giải thuật bầy đàn mà nhóm áp dụng thực chất là một tập hợp ba quy tắc đặc trưng của một hành vi bầy đàn đó là \textit{Gắn kết - Phân tách - Điều chỉnh} (Cohesion, Separation and Alignment).  \\
+			Mỗi Quadcopter thành viên sẽ có một vùng không gian lân cận với bán kính $r_{1}$ cho trước và vùng không gian an toàn với bán kính $r_{2}$ với $r_{1}>r_{2}$. Những Quadcopters nằm trong không gian lân cận của nhau gọi là hàng xóm và khoảng cách được xác định bởi cảm biến siêu âm. Quy tắc \textit{Gắn kết} được hiểu là mỗi đơn vị sẽ tự động bay về phía vị trí trung bình của các hàng xóm của nó. 
+			\begin{figure}[h!]
+	        	\begin{center}
+	        		\includegraphics[scale=0.4]{images/cohesion.png}
+	        		\caption{Quy tắc gắn kết}
+	        	\end{center}
+        \end{figure}
+        \\
+        Quy tắc \textit{Phân tách} giúp mỗi Quadcopter sẽ tự động tránh va chạm với hàng xóm của mình khi bị xâm nhập vào vùng không gian an toàn. Đồng thời tránh va chạm khi phát hiện có vật thể lạ nằm trong vùng lân cận.
+        \begin{figure}[h!]
+	        	\begin{center}
+	        		\includegraphics[scale=0.4]{images/separation.png}
+	        		\caption{Quy tắc phân tách}
+	        	\end{center}
+        \end{figure}
+        \\
+        Quy tắc \textit{Điều chỉnh} giúp mỗi Quadcopter tự động bay theo hướng bay trung bình của các quadcopter hàng xóm. 
+        \begin{figure}[h!]
+	        	\begin{center}
+	        		\includegraphics[scale=0.4]{images/alignment.png}
+	        		\caption{Quy tắc điều chỉnh}
+	        	\end{center}
+        \end{figure}
+        \subsection{Phương pháp Leader - Follower} 
+        Với hành vi bầy đàn, các Quadcopter đã có thể tự giữ đội hình theo bầy. Sau đó áp dụng phương pháp Leader Follower chọn một Quadcopter để làm đầu đàn. Quadcopter đầu đàn sẽ là đơn vị tham khảo cho bầy. Khi ra lệnh bay cho Quadcopter đầu đàn, thông tin về vị trí của nó sẽ được xử lý bởi giải thuật bầy đàn và truyền qua cho các Quadcopter thành viên để sinh ra lệnh bay phù hợp bay theo sau con đầu đàn. 
+        \begin{figure}[h!]
+	        	\begin{center}
+	        		\includegraphics[scale=0.3]{images/leaderfollower.png}
+	        		\caption{Mô hình Leader - Follower}
+	        	\end{center}
+        \end{figure}

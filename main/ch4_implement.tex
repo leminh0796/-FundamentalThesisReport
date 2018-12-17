@@ -1,25 +1,22 @@
-\chapter{Hiện thực ứng dụng}
-    \section{Chỉnh sửa model Simple OnOff}\label{simpleonoff}
-        \subsection{Model Simple OnOff}
-        Trong Mesh SDK v1.0.1 của Nordic có cung cấp sẵn một model là Simple OnOff, cho phép gửi/nhận một 1 bit. Node gateway có thể gửi tín hiệu để tắt mở LED trên node cảm biến bằng hàm set, cũng như dùng hàm get để yêu cầu node cảm biến gửi trạng thái hiện tại của LED cho mình.
-        \subsection{Khó khăn}
-        Tuy nhiên vì mục đích chỉ là một ví dụ cho người dùng làm quen với cách lập trình sử dụng SDK nên cách hoạt động của model Simple OnOff cũng rất đơn giản, nếu muốn sử dụng model này vào trong đề tài, buộc nhóm phải chỉnh sửa lại model này hoặc tạo một model mới. Nhóm đã tham khảo trong tài liệu của Bluetooth Mesh, cụ thể là Mesh Model Specification 1.0 \cite{meshspec}, phát hiện SIG có định nghĩa một model Sensor với đầy đủ các thuộc tính ID, chu kỳ, hàm đọc giá trị,... nghĩa là trong tương lai Mesh SDK sẽ hỗ trợ model này. Do đó việc tạo một model mới để đọc giá trị cảm biến là không cần thiết, nhóm sẽ chỉnh sửa model Simple OnOff để phục vụ đề tài.
-        \subsection{Thực hiện}
-        Việc can thiệp vào model Simple OnOff đòi hỏi nhóm phải đọc mã nguồn và tìm ra những điểm liên quan đến gói tin giao tiếp của model này. Kiểu dữ liệu của gói tin được định nghĩa trong file simple\_on\_off\_common.h, còn các hàm liên quan đến việc get/set có trong file simple\_on\_off\_client.h và simple\_on\_off\_server.h, nhóm chỉnh sửa các kiểu dữ liệu để đồng bộ với nhau và model này đã có thể gửi những dữ liệu với kích thước lớn hơn, giới hạn là 10 bytes cho gói đơn lẻ, 384 bytes cho gói fragmented (chia nhỏ gói tin để gửi nhiều lần, sau đó ghép lại)\cite{nordiccase125876}. Sở dĩ có giới hạn này là Bluetooth Mesh sử dụng sóng radio, mà gói tin nhỏ sẽ giúp giảm bớt đụng độ, giới hạn 10 bytes đã được tính toán đủ cho một số ứng dụng thông thường.
-    \section{Kết hợp thư viện SDK common}
-        \subsection{Khó khăn}
-        Việc hiện thực ứng dụng đòi hỏi phải có timer để xử lý các chu kỳ, UART để giao tiếp với module SIM (khác với UART dùng để giao tiếp với máy tính), nhưng Mesh SDK lại không hỗ trợ hai thư viện này mà chỉ có một thư viện hal (Hardware abstract layer) rất khó sử dụng. Do đó nhóm cần phải kết hợp Mesh SDK với SDK common của Nordic cung cấp để lập trình trên kit phát triển của hãng, phiên bản dùng trong đề tài là nRF5\_SDK\_14.2.0\cite{nrf5sdk}.
-        \subsection{Thực hiện}
-        Nhóm thử tiến hành kết hợp bằng 2 hướng tiếp cận:
+\chapter{Giai đoạn Luận văn tốt nghiệp}
+    \section{Những công việc sẽ được thực hiện}
+        \subsection{Hoàn thiện giải thuật bầy đàn}
+        Nhóm chỉ mới đưa ra mô hình giải thuật bầy đàn chứ chưa có tiếp cận trên phương diện toán học để áp dụng vào lập trình. Trong giai đoạn luận văn nhóm sẽ hoàn thành giải thuật và áp dụng vào lập trình. 
+        \subsection{Xây dựng phần cứng phù hợp và kết nối với chương trình điều khiển}
+        Nhóm sẽ tiến hành hiện thực phần cứng dựa trên những gì đã tìm hiểu và kết nối với trình điều khiển Ardupilot bằng cách xây dựng bộ firmware phù hợp với phần cứng của nhóm thông qua lớp trừu tượng phần cứng (Hardware Abstraction Layer) trong Ardupilot.
+        \subsection{Xây dựng chế độ bay theo bầy đàn trong Ardupilot}
+        Dựa trên kiến trúc mã nguồn của Ardupilot mà nhóm đã tìm hiểu, nhóm sẽ sửa và viết thêm chế độ bay theo bầy đàn áp dụng giải thuật bầy đàn mà nhóm đã đưa ra.
+    \section{Kế hoạch thực hiện}
+        Mỗi thành viên của nhóm sẽ đảm nhiệm một nhiệm vụ chính nhưng đồng thời cũng hỗ trợ nhau cùng hoàn thành luận văn một cách hoàn chỉnh nhất. Nhiệm vụ cho mỗi thành viên như sau:
         \begin{itemize}
-            \item Chép các file từ common SDK sang mesh SDK: không thành công vì xuất hiện rất nhiều lỗi liên quan đến việc liên kết giữa các header và file mã nguồn nhưng vì số lượng file quá nhiều nên không sửa hết các liên kết này.
-            \item Chép các file từ mesh SDK sang common SDK, hướng này cũng là hướng dẫn của chính Nordic: không thành công vì khi liên quan đến softdevice, một số drivers của common SDK bị xung đột.
-        \end{itemize}
-        Sau đó, nhóm sử dụng giải pháp chép các file từ common SDK sang mesh SDK nhưng không phải toàn bộ mà chép từng phần. Nếu cần dùng UART thì chép những file liên quan đến UART, cần dùng Timer thì chép file liên quan đến Timer và cách này đã hoạt động tốt.
-    \section{Hiện thực node cảm biến}
-        \subsection{Đọc giá trị cảm biến}
-        Node cảm biến không thực hiện thêm chức năng gì so với mã nguồn mẫu ban đầu của SDK, chỉ chỉnh sửa hàm get\_cb (được kích hoạt khi node gateway gửi yêu cầu đọc dữ liệu cảm biến) để hàm trả về giá trị cảm biến hiện tại. Việc đọc giá trị cảm biến được softdevice hỗ trợ sẵn với hàm sd\_temp\_get().
-    \section{Hiện thực node gateway}
-        \subsection{Thư viện giao tiếp với module SIM}
-        Thư viện này nhóm viết bằng ngôn ngữ C++ mà cả common SDK và mesh SDK đều dùng C, nên khi sử dụng trong đề tài này đã gặp phải khó khăn: không compile được. Nhóm phát triển dựa trên mã nguồn và file Segger Embedded Studio nên mọi thông số mặc định đều dành cho ngôn ngữ C, cách giải quyết lại chỉnh sửa thư viện của nhóm để phù hợp với compiler.
-
+        \item Trần Lê Minh: đảm nhiệm việc tổ chức hoạt động nhóm, liên lạc với giảng viên, theo dõi tình hình và thúc đẩy tiến độ luận văn; hoàn thiện giải thuật bầy đàn và hỗ trợ nhóm trong việc xây dựng phần cứng và phần mềm; hoàn thiện báo cáo.
+        \item Lê Huy Cường: xây dựng và hoàn thiện chế độ bay theo bầy đàn; hoàn thiện báo cáo; hỗ trợ xấy dựng phần cứng.
+        \item Nguyễn Hoàng Thương: xây dựng và hoàn thiện phần cứng; hoàn thiện báo cáo; hỗ trợ xây dựng chế độ bay theo bầy đàn. 
+    \end{itemize}
+    Thời gian thực hiện luận văn là 15 tuần theo học kỳ chia làm ba giai đoạn:
+    \begin{itemize}
+        \item Giai đoạn 1 (5 tuần đầu): Tập trung vào xây dựng giải thuật bầy đàn và xây dựng chế độ bay theo bầy đàn, dùng công cụ mô phỏng bay để kiểm tra và tùy chỉnh.
+        \item Giai đoạn 2 (5 tuần tiếp theo): Tập trung vào xây dựng và hoàn thiện phần cứng, áp dụng chế độ bay đã xây dựng vào thực tế để kiểm tra và điều chỉnh cho phù hợp.
+        \item Giai đoạn 3 (5 tuần cuối): Tổng kết những kết quả thực hiện được, những khó khăn và đưa ra giải pháp, hoàn thiện báo cáo luận văn, chuẩn bị bài thuyết trình trước hội đồng.
+    \end{itemize}
+    	Nhóm sẽ sử dụng công cụ Slack trong liên lạc làm việc và Github để tổ chức mã nguồn báo cáo (Latex) cũng như mã nguồn chương trình.
